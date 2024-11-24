@@ -5,10 +5,18 @@
 #ifndef BASICOBJECT_H
 #define BASICOBJECT_H
 
-
+#include <string>
+#include <vector>
+using std::string;
 
 class BasicObject {
-
+protected:
+    char printCode;
+    string typeName;
+public:
+    BasicObject();
+    virtual ~BasicObject();
+    friend class Level;
 };
 
 

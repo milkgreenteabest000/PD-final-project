@@ -1,0 +1,67 @@
+{
+  "level_name": "Example Level",
+  "size": {
+    "width": 10,
+    "height": 10
+  },
+  "objects": [
+    {
+      "type": "Baba",
+      "position": {
+        "x": 2,
+        "y": 3
+      },
+      "properties": {
+        "is_push": true,
+        "is_you": true
+      }
+    },
+    {
+      "type": "Wall",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "properties": {
+        "is_stop": true
+      }
+    },
+    {
+      "type": "Flag",
+      "position": {
+        "x": 8,
+        "y": 8
+      },
+      "properties": {
+        "is_win": true
+      }
+    },
+    {
+      "type": "Rock",
+      "position": {
+        "x": 4,
+        "y": 5
+      },
+      "properties": {
+        "is_push": true
+      }
+    }
+  ],
+  "rules": [
+    {
+      "subject": "Baba",
+      "verb": "is",
+      "predicate": "you"
+    },
+    {
+      "subject": "Flag",
+      "verb": "is",
+      "predicate": "win"
+    },
+    {
+      "subject": "Wall",
+      "verb": "is",
+      "predicate": "stop"
+    }
+  ]
+}
