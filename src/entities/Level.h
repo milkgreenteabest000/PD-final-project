@@ -24,7 +24,7 @@ private:
     int width;
     int height;
     string name;
-    vector<vector<BasicObject>> objects;
+    vector<vector<BasicObject*>> objects;
 
 };
 

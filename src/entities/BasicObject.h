@@ -11,11 +11,12 @@ using std::string;
 
 class BasicObject {
 protected:
-    char printCode;
+    string printCode;
     string typeName;
 public:
-    BasicObject();
+    BasicObject(string typeName);
     virtual ~BasicObject();
+    bool trigger(const BasicObject& source, int direction);
     friend class Level;
 };
 
