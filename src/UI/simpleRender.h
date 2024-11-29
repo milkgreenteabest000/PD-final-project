@@ -4,6 +4,7 @@
 
 #ifndef SIMPLERENDER_H
 #define SIMPLERENDER_H
+#include <string>
 
 class Level;
 

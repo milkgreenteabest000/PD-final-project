@@ -6,6 +6,8 @@
 #include<cstdlib>
 #include "Level.h"
 #include <iostream>
+#include <string>
+#include <thread>
 
 /*
  * AAA BBB CCC --- --- --- ---
@@ -27,8 +29,15 @@ void renderLevel(const Level& level) {
     clearTerminal();
     for (int y=0;y<level.height; y++) {
         for (int x=0;x<level.width; x++) {
+            if (level.objects[x][y]==nullptr) {
+                std::cout << "--- ";
+                continue;
+            }
             std::cout << level.objects[x][y]->getPrintCode() << " ";
         }
         std::cout << std::endl;
     }
+    std::system("clear");
+    std::cout << "\033[2J\033[1;1H";
+    std::cout << "next step" << std::endl;
 }

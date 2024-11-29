@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "BasicObject.h"
+#include "Rules.h"
 using std::string, std::vector;
 
 
@@ -16,16 +17,17 @@ public:
     Level(int width, int height);
     ~Level();
     bool addObject(vector<int> position, string type);
-    bool removeObject(vector<int> position);
-    bool moveObject(int oldX, int oldY, int newX, int newY);
-    void basicPrint();
+    // bool removeObject(vector<int> position);
+    // bool moveObject(int oldX, int oldY, int newX, int newY);
+    Level(const Level& other);
     friend void renderLevel(const Level& level);
 private:
     int width;
     int height;
     string name;
     vector<vector<BasicObject*>> objects;
-
+    vector<string> uniqueTypes;
+    Rules rules;
 };
 
 

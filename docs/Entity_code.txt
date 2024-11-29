@@ -1,2 +1,6 @@
 Nothing: -1
 Player: 0
+
+there are a few types of typeName:
+    VariableObject: it goes like "A"
+    PointerObject: it goes like "*A"

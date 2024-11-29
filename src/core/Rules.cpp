@@ -3,3 +3,7 @@
 //
 
 #include "Rules.h"
+Rules::Rules() {
+    rules = std::vector< Rule >(0);
+}
+Rules::~Rules() = default;

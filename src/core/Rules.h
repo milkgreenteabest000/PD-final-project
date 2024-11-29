@@ -8,8 +8,7 @@
 #include <vector>
 
 
-class Rule {
-protected:
+struct Rule {
     std::string fromTypeName;
     std::string property;
     std::string operation;

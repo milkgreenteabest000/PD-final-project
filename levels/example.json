@@ -6,45 +6,23 @@
   },
   "objects": [
     {
-      "type": "Baba",
-      "position": {
-        "x": 2,
-        "y": 3
-      },
-      "properties": {
-        "is_push": true,
-        "is_you": true
-      }
+      "type": "-A-",
+      "position": [
+        3,
+        2
+      ]
     },
     {
-      "type": "Wall",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "properties": {
-        "is_stop": true
-      }
+      "type": "-B-",
+      "position": [0,0]
     },
     {
-      "type": "Flag",
-      "position": {
-        "x": 8,
-        "y": 8
-      },
-      "properties": {
-        "is_win": true
-      }
+      "type": "-C-",
+      "position": [8,8]
     },
     {
-      "type": "Rock",
-      "position": {
-        "x": 4,
-        "y": 5
-      },
-      "properties": {
-        "is_push": true
-      }
+      "type": "-D-",
+      "position": [4,5]
     }
   ],
   "rules": [
