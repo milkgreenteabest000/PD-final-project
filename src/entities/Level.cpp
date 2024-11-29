@@ -4,6 +4,7 @@
 
 #include "Level.h"
 
+#include <iostream>
 #include <stdexcept>
 #include <utility>
 
@@ -48,7 +49,7 @@ Level::~Level() {
 
 bool Level::addObject(vector<int> position, string type, string name) {
     if (objects[position[0]][position[1]] != nullptr) {
-        return false; //TODO: throw exception here
+        throw std::runtime_error("Level::addObject: Object already exists");
     }
     objects[position[0]][position[1]] = new BasicObject(std::move(type), std::move(name));
     return true;
@@ -88,6 +89,16 @@ bool Level::moveObject(int oldX, int oldY, int direction) {
         }
     } else {
         throw std::invalid_argument("Invalid direction");
+    }
+    if (objects[newX][newY] != nullptr) {
+        int result = objects[newX][newY]->trigger(*objects[newX][newY], direction);
+        if (result > 0 && result <=4) {
+            if(!moveObject(newX, newY, direction)) {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
     objects[newX][newY] = objects[oldX][oldY];
     objects[oldX][oldY] = nullptr;

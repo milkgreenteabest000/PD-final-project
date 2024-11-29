@@ -4,3 +4,10 @@ Player: 0
 there are a few types of typeName:
     VariableObject: it goes like "A"
     PointerObject: it goes like "*A"
+
+here are some properties:
+    .p = isPushable
+    .w = isWin
+    .l = isLose
+    .b = isBlock
+    .u = isYou

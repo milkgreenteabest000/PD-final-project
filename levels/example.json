@@ -6,8 +6,28 @@
   },
   "objects": [
     {
+      "name" : "-A-",
+      "type": "variable",
+      "position": [[0,1]]
+    },{
+      "name" : "-B-",
+      "type": "variable",
+      "position": [[0,2]]
+    },
+    {
+      "name" : "-C-",
+      "type": "variable",
+      "position": [[0,3]]
+    },
+    {
+      "name" : "-D-",
+      "type": "variable",
+      "position": [[0,4]]
+    },
+    {
       "name": "*A-",
       "type": "pointer",
+      "target": "-A-",
       "position": [[
         3,
         2
@@ -16,26 +36,29 @@
     {
       "name": "*B-",
       "position": [[0,0]],
-      "type": "pointer"
+      "type": "pointer",
+      "target": "-B-"
     },
     {
       "name": "*C-",
       "type": "pointer",
+      "target": "-C-",
       "position": [[8,8]]
     },
     {
       "name": "*D-",
       "type": "pointer",
+      "target": "-C-",
       "position": [[4,5]]
     }
   ],
   "rules": [
     {
-      "subject": "*A-",
+      "subject": "-A-",
       "property": "player"
     },
     {
-      "subject": "*B-",
+      "subject": "-B-",
       "property": "push"
     }
   ]

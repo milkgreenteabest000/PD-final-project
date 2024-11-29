@@ -29,8 +29,16 @@ add_library(game_library src/core/Rules.cpp
         src/UI/simpleRender.h
         src/utils/readLevel.cpp
         src/utils/readLevel.h
-        src/entities/SpecialObject.cpp
-        src/entities/SpecialObject.h)
+        src/entities/VariableObject.cpp
+        src/entities/VariableObject.h
+        src/entities/PointerObject.cpp
+        src/entities/PointerObject.h
+        src/entities/PropertyObject.cpp
+        src/entities/PropertyObject.h
+        src/entities/OperatorObject.cpp
+        src/entities/OperatorObject.h
+        src/entities/KeyWordObject.cpp
+        src/entities/KeyWordObject.h)
 target_link_libraries(final_project PRIVATE  nlohmann_json::nlohmann_json)
 target_link_libraries(final_project PRIVATE game_library)
 target_link_libraries(game_library PRIVATE  nlohmann_json::nlohmann_json)

@@ -19,7 +19,7 @@ class Rules {
     public:
     Rules();
     virtual ~Rules();
-    std::vector<Rule> getRules(std::string type);
+    std::vector<Rule> getRules(std::string name);
     void addRule(string type, string property);
     std::string findPlayer();
 };

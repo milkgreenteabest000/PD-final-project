@@ -3,3 +3,13 @@
 2 for right
 3 for down
 4 for left
+
+#trigger results:
+0 for not doing anything
+1 for up
+2 for right
+3 for down
+4 for left
+5 for winning
+6 for losing
+7 for eaten (the original block disappears)
