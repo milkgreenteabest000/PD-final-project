@@ -19,7 +19,7 @@ public:
     bool removeObject(vector<int> position);
     bool moveObject(int oldX, int oldY, int newX, int newY);
     void basicPrint();
-
+    friend void renderLevel(const Level& level);
 private:
     int width;
     int height;

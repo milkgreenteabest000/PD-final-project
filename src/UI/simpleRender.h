@@ -5,6 +5,9 @@
 #ifndef SIMPLERENDER_H
 #define SIMPLERENDER_H
 
+class Level;
 
+void clearTerminal();
+void renderLevel(const Level& level);
 
 #endif //SIMPLERENDER_H

@@ -11,13 +11,16 @@ using std::string;
 
 class BasicObject {
 protected:
-    string printCode;
+    string printCode; // -->3 char long ex. AAA -A-
     string typeName;
 public:
     BasicObject(string typeName);
     virtual ~BasicObject();
-    bool trigger(const BasicObject& source, int direction);
+    int trigger(const BasicObject& source, int direction) const;
     friend class Level;
+    string getPrintCode() const {
+        return printCode;
+    };
 };
 
 

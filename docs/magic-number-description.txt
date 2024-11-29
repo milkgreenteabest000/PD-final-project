@@ -1,0 +1,5 @@
+#Directions:
+1 for up
+2 for right
+3 for down
+4 for left
