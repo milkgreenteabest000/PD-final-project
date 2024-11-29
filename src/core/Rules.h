@@ -7,11 +7,10 @@
 #include <string>
 #include <vector>
 
-
+using std::string;
 struct Rule {
     std::string fromTypeName;
     std::string property;
-    std::string operation;
 };
 
 class Rules {
@@ -20,7 +19,9 @@ class Rules {
     public:
     Rules();
     virtual ~Rules();
-    std::vector<Rule> getRules(std::string typeName);
+    std::vector<Rule> getRules(std::string type);
+    void addRule(string type, string property);
+    std::string findPlayer();
 };
 
 #endif //RULES_H

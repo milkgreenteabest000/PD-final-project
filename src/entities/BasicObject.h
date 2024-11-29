@@ -14,7 +14,7 @@ protected:
     string printCode; // -->3 char long ex. AAA -A-
     string typeName;
 public:
-    BasicObject(string typeName);
+    BasicObject(const string& typeName, const string& printName);
     virtual ~BasicObject();
     int trigger(const BasicObject& source, int direction) const;
     friend class Level;

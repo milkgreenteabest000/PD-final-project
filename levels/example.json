@@ -1,45 +1,42 @@
 {
   "level_name": "Example Level",
   "size": {
-    "width": 10,
-    "height": 10
+    "width": 15,
+    "height": 15
   },
   "objects": [
     {
-      "type": "-A-",
-      "position": [
+      "name": "*A-",
+      "type": "pointer",
+      "position": [[
         3,
         2
-      ]
+      ]]
     },
     {
-      "type": "-B-",
-      "position": [0,0]
+      "name": "*B-",
+      "position": [[0,0]],
+      "type": "pointer"
     },
     {
-      "type": "-C-",
-      "position": [8,8]
+      "name": "*C-",
+      "type": "pointer",
+      "position": [[8,8]]
     },
     {
-      "type": "-D-",
-      "position": [4,5]
+      "name": "*D-",
+      "type": "pointer",
+      "position": [[4,5]]
     }
   ],
   "rules": [
     {
-      "subject": "Baba",
-      "verb": "is",
-      "predicate": "you"
+      "subject": "*A-",
+      "property": "player"
     },
     {
-      "subject": "Flag",
-      "verb": "is",
-      "predicate": "win"
-    },
-    {
-      "subject": "Wall",
-      "verb": "is",
-      "predicate": "stop"
+      "subject": "*B-",
+      "property": "push"
     }
   ]
 }

@@ -37,7 +37,4 @@ void renderLevel(const Level& level) {
         }
         std::cout << std::endl;
     }
-    std::system("clear");
-    std::cout << "\033[2J\033[1;1H";
-    std::cout << "next step" << std::endl;
 }

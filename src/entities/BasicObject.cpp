@@ -3,8 +3,8 @@
 //
 
 #include "BasicObject.h"
-BasicObject::BasicObject(string typeName) {
+BasicObject::BasicObject(const string& typeName, const string& printName) {
     this->typeName = typeName;
-    this->printCode = typeName;
+    this->printCode = printName;
 }
 BasicObject::~BasicObject() = default;

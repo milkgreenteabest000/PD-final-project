@@ -13,6 +13,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(json)
 
+
+
 add_executable(final_project
     src/core/main.cpp)
 add_library(game_library src/core/Rules.cpp
@@ -33,6 +35,10 @@ target_link_libraries(final_project PRIVATE  nlohmann_json::nlohmann_json)
 target_link_libraries(final_project PRIVATE game_library)
 target_link_libraries(game_library PRIVATE  nlohmann_json::nlohmann_json)
 include_directories(src/utils src/UI src/entities src/core)
+
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+target_link_libraries(final_project PRIVATE ${CURSES_LIBRARIES})
 add_custom_command(
         TARGET final_project PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
