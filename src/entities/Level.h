@@ -11,17 +11,18 @@
 #include "Rules.h"
 using std::string, std::vector;
 
+class Rules;
 
 class Level {
 public:
     Level(int width, int height);
     ~Level();
-    bool addObject(vector<int> position, string type, string name);
+    bool addObject(vector<int> position, string type, string name, const string &target = "");
     // bool removeObject(vector<int> position);
     bool moveObject(int oldX, int oldY, int direction);
     // bool isWin();
     // bool isLoose();
-    // void updateRules();
+    void updateRules();
     void movePlayer(int direction);
     Level(const Level& other);
     void addRule(string type, string property);

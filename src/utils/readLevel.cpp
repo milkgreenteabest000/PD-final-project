@@ -36,9 +36,15 @@ Level readLevel(const std::string& fileName) {
         // int y = objs[i]["position"]["y"];
         for (int j = 0; j < objs[i]["position"].size(); j++) {
             vector<int> position = objs[i]["position"][j].get<std::vector<int>>();
-            level.addObject(position, type, name);
+            if (type == "variable") {
+                level.addObject(position, type, name);
+            } else if (type == "pointer") {
+                string target = objs[i]["target"];
+                std::cout << target << std::endl;
+                level.addObject(position, type, name, target);
+            }
         }
     }
-
+    level.updateRules();
     return level;
 }

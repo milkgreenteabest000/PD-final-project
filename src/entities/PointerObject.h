@@ -16,6 +16,7 @@ class PointerObject: public BasicObject{
     VariableObject * target;
     public:
     PointerObject(const string& name, string targetName, VariableObject * target);
+    friend class Level;
 };
 
 

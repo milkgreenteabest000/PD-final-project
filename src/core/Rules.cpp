@@ -21,3 +21,12 @@ std::string Rules::findPlayer() {
     return "";
 }
 
+std::vector<Rule> Rules::getRules(std::string name) {
+    std::vector<Rule> rules(0);
+    for (auto& rule : this->rules) {
+        if (rule.fromTypeName == name) {
+            rules.push_back(rule);
+        }
+    }
+    return rules;
+}

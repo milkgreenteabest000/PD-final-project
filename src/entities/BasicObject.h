@@ -13,7 +13,7 @@ class BasicObject {
 protected:
     string printCode; // -->3 char long ex. AAA -A-
     string typeName;
-    bool isPushable = true;
+    bool isPushable = false;
     bool isBlock = false;
     bool isPlayer = false;
     bool isWin = false;

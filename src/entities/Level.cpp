@@ -8,6 +8,9 @@
 #include <stdexcept>
 #include <utility>
 
+#include "PointerObject.h"
+#include "VariableObject.h"
+
 Level::Level(int width, int height) {
     this->width = width;
     this->height = height;
@@ -47,11 +50,26 @@ Level::~Level() {
     // because it is managed by std::vector.
 }
 
-bool Level::addObject(vector<int> position, string type, string name) {
+bool Level::addObject(vector<int> position, string type, string name, const string& target) {
     if (objects[position[0]][position[1]] != nullptr) {
         throw std::runtime_error("Level::addObject: Object already exists");
     }
-    objects[position[0]][position[1]] = new BasicObject(std::move(type), std::move(name));
+    if (type == "variable") {
+        objects[position[0]][position[1]] = new VariableObject(std::move(name), std::move(type));
+    }
+    if (type == "pointer") {
+        for (int y = 0; y < height; ++y) {
+            for (int x = 0; x < width; ++x) {
+                if (objects[x][y] != nullptr) {
+                    if (objects[x][y]->printCode == target) {
+                        VariableObject* obj = dynamic_cast<VariableObject*>(objects[x][y]);
+                        objects[position[0]][position[1]] = new PointerObject(name, std::move(type), obj);
+                    }
+                }
+            }
+        }
+    }
+
     return true;
 }
 
@@ -109,16 +127,37 @@ bool Level::moveObject(int oldX, int oldY, int direction) {
 void Level::movePlayer(int direction) {
     string playerName = rules.findPlayer();
     vector<int> playerPosition(2);
+    bool found = false;
     for (int x = 0; x < width; ++x) {
         for (int y = 0; y < height; ++y) {
-            if (objects[x][y] != nullptr) {
-                if (objects[x][y]->printCode == playerName) {
+            if (objects[x][y] != nullptr && objects[x][y]->typeName == "pointer") {
+                PointerObject* obj = dynamic_cast<PointerObject*>(objects[x][y]);
+                if (obj->target->isPlayer) {
                     playerPosition[0] = x;
                     playerPosition[1] = y;
+                    found = true;
                 }
             }
         }
     }
+    if (!found) {
+        throw std::logic_error("No player");
+    }
     this->moveObject(playerPosition[0], playerPosition[1], direction);
 }
 
+void Level::updateRules() {
+    for (int x = 0; x < width; ++x) {
+        for (int y=0;y<height; y++) {
+            if (objects[x][y] != nullptr) {
+                if (objects[x][y]->typeName == "variable") {
+                    VariableObject* obj = dynamic_cast<VariableObject*>(objects[x][y]);
+                    vector<Rule> targetRules = rules.getRules(obj->printCode);
+                    for (auto& rule : targetRules) {
+                        obj->applyRule(rule.property);
+                    }
+                }
+            }
+        }
+    }
+}

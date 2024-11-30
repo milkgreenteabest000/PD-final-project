@@ -13,6 +13,7 @@ class VariableObject : public BasicObject{
 public:
     void applyRule(std::string ruleName);
     VariableObject(std::string name, std::string type);
+    int trigger(const BasicObject &source, int direction) override;
 };
 
 

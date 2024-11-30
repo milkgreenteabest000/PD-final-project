@@ -12,7 +12,7 @@
     },{
       "name" : "-B-",
       "type": "variable",
-      "position": [[0,2]]
+      "position": [[7,7], [8,8]]
     },
     {
       "name" : "-C-",
@@ -29,7 +29,7 @@
       "type": "pointer",
       "target": "-A-",
       "position": [[
-        3,
+        5,
         2
       ]]
     },
@@ -43,7 +43,7 @@
       "name": "*C-",
       "type": "pointer",
       "target": "-C-",
-      "position": [[8,8]]
+      "position": [[8,7]]
     },
     {
       "name": "*D-",
