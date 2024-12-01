@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "BasicObject.h"
-#include "Rules.h"
+#include "../core/Rules.h"
 using std::string, std::vector;
 
 class Rules;
@@ -27,6 +27,7 @@ public:
     Level(const Level& other);
     void addRule(string type, string property);
     friend void renderLevel(const Level& level);
+    friend class RenderLevel;
 private:
     int width;
     int height;
