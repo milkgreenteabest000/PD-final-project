@@ -1,0 +1,65 @@
+{
+  "level_name": "Example Level",
+  "size": {
+    "width": 15,
+    "height": 15
+  },
+  "objects": [
+    {
+      "name" : "-A-",
+      "type": "variable",
+      "position": [[0,1]]
+    },{
+      "name" : "-B-",
+      "type": "variable",
+      "position": [[7,7], [8,8]]
+    },
+    {
+      "name" : "-C-",
+      "type": "variable",
+      "position": [[0,3]]
+    },
+    {
+      "name" : "-D-",
+      "type": "variable",
+      "position": [[0,4]]
+    },
+    {
+      "name": "*A-",
+      "type": "pointer",
+      "target": "-A-",
+      "position": [[
+        5,
+        2
+      ]]
+    },
+    {
+      "name": "*B-",
+      "position": [[0,0]],
+      "type": "pointer",
+      "target": "-B-"
+    },
+    {
+      "name": "*C-",
+      "type": "pointer",
+      "target": "-C-",
+      "position": [[8,7]]
+    },
+    {
+      "name": "*D-",
+      "type": "pointer",
+      "target": "-C-",
+      "position": [[4,5]]
+    }
+  ],
+  "rules": [
+    {
+      "subject": "-A-",
+      "property": "player"
+    },
+    {
+      "subject": "-B-",
+      "property": "push"
+    }
+  ]
+}

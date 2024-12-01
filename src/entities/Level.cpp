@@ -161,3 +161,24 @@ void Level::updateRules() {
         }
     }
 }
+
+
+
+void Level::operator=(const Level& other) {
+    this->width = other.width;
+    this->height = other.height;
+    this->name = other.name;
+    this->uniqueNames = other.uniqueNames;
+    this->rules = other.rules;
+    // Deep copy the 2D vector of BasicObject pointers
+    this->objects.resize(height, vector<BasicObject*>(width, nullptr));
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            if (other.objects[i][j]) {
+                this->objects[i][j] = other.objects[i][j];
+            } else {
+                this->objects[i][j] = nullptr;
+            }
+        }
+    }
+}

@@ -3,44 +3,19 @@
 //
 
 #include <iostream>
-
-#include "Level.h"
-#include "readLevel.h"
 #include <string>
-#include<ncurses.h>
-
-char getKey() {
-    initscr();          // Initialize ncurses
-    cbreak();           // Disable line buffering
-    noecho();           // Disable echoing
-    char c = getch();   // Get a single character
-    endwin();           // End ncurses mode
-    return c;
-}
+#include "../entities/Level.h"
+#include "../utils/readLevel.h"
+#include "../UI/scene.h"
 
 int main() {
     std::string filePath = "levels/example.json";
     Level level = readLevel(filePath);
-    renderLevel(level);
-    char input;
-    while (true) {
-        input = getKey();
-        switch (input) {
-            case 'a':
-                level.movePlayer(4);
-            break;
-            case 'd':
-                level.movePlayer(2);
-            break;
-            case 'w':
-                level.movePlayer(1);
-            break;
-            case 's':
-                level.movePlayer(3);
-            break;
-        }
-        renderLevel(level);
+    
+    RenderLevel renderer(level);
 
+    while (true) {
+        renderer.render();
     }
     return 0;
 }

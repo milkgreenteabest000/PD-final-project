@@ -1,0 +1,1 @@
+-I"C:/Users/myown/PD-final-project/src/utils" -I"C:/Users/myown/PD-final-project/src/UI" -I"C:/Users/myown/PD-final-project/src/entities" -I"C:/Users/myown/PD-final-project/src/core" -I"C:/Users/myown/PD-final-project/build/_deps/json-src/include" -isystem C:/SFML/include

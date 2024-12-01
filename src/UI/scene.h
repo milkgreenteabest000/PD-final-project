@@ -16,11 +16,13 @@ const int GRID_HEIGHT = WINDOW_HEIGHT/TILE_SIZE;
 
 class RenderLevel{
     public:
-        RenderLevel(const Level& level);        //建構子
+        RenderLevel(Level& level);        //建構子
         void renderObject(const BasicObject& object, int i, int j);       //渲染物件
         void render();      //渲染遊戲畫面
+        void handleInput(Level& level);      //處理輸入
+        void updateSprites();  // 新增更新精靈的方法 
     private:
-        const Level& level;
+        Level& level;
         vector<vector<sf::Sprite>> sprites;
         sf::RenderWindow window;   
         sf::Texture wallTexture;

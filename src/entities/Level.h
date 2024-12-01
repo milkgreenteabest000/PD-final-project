@@ -26,6 +26,7 @@ public:
     void movePlayer(int direction);
     Level(const Level& other);
     void addRule(string type, string property);
+    void operator=(const Level& other);
     friend void renderLevel(const Level& level);
     friend class RenderLevel;
 private:
